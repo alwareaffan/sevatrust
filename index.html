@@ -1,509 +1,392 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Seva Charitable Trust — Serving Humanity with Compassion</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seva Charitable Trust | Serving Humanity with Compassion</title>
+  <meta name="description" content="Seva Charitable Trust is a registered NGO working for social welfare, education, women empowerment, medical aid and community upliftment." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --deep-blue: #0f2a4d; /* anchor */
-      --warm-orange: #ff7a2d;
-      --soft-gold: #f6c65f;
-      --ivory: #ffffff;
-      --muted: #f6f7fb;
-      --glass: rgba(255,255,255,0.08);
-      --card-shadow: 0 8px 30px rgba(15,42,77,0.08);
-      --radius: 14px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:'Poppins',system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      color:var(--deep-blue);
-      background:linear-gradient(180deg, #fff 0%, #fbfbff 100%);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      scroll-behavior:smooth;
+    :root {
+      --primary: #f57c00;
+      --secondary: #2e7d32;
+      --light: #f9f9f9;
+      --dark: #222;
     }
 
-    /* ====== Navigation ====== */
-    .nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:92%;max-width:1200px;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-radius:40px;background:rgba(255,255,255,0.55);backdrop-filter:blur(6px);box-shadow:0 6px 20px rgba(15,42,77,0.06)}
-    .logo{display:flex;align-items:center;gap:12px}
-    .logo .mark{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--warm-orange),var(--soft-gold));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;box-shadow:0 6px 20px rgba(255,122,45,0.16)}
-    .logo h1{font-size:16px;margin:0;line-height:1;color:var(--deep-blue)}
-    .nav-links{display:flex;gap:18px;align-items:center}
-    .nav-links a{color:var(--deep-blue);text-decoration:none;font-weight:600;font-size:14px;padding:8px 12px;border-radius:10px}
-    .nav-links a.cta{background:linear-gradient(90deg,var(--warm-orange),var(--soft-gold));color:white;box-shadow:0 8px 20px rgba(255,122,45,0.12)}
-    @media(max-width:800px){.nav-links{display:none}}
-
-    /* ====== Hero ====== */
-    .hero{min-height:85vh;display:grid;align-items:center;padding:110px 16px 60px;position:relative;overflow:hidden}
-    .hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 480px;gap:36px;align-items:center}
-    .hero-copy h2{font-size:44px;margin:0 0 12px;color:var(--deep-blue);letter-spacing:-0.4px;font-weight:700}
-    .hero-copy p{margin:0 0 20px;color:#2f486d;font-size:18px}
-    .hero-ctas{display:flex;gap:14px}
-    .btn{padding:12px 18px;border-radius:12px;font-weight:600;border:0;cursor:pointer}
-    .btn-primary{background:linear-gradient(90deg,var(--warm-orange),var(--soft-gold));color:white;box-shadow:0 12px 30px rgba(255,122,45,0.12)}
-    .btn-ghost{background:transparent;border:1.5px solid rgba(15,42,77,0.07);color:var(--deep-blue)}
-    .hero-media{border-radius:18px;overflow:hidden;box-shadow:var(--card-shadow);border:1px solid rgba(12,34,60,0.04)}
-    .hero-media video,.hero-media img{width:100%;height:100%;object-fit:cover;display:block}
-
-    /* decorative shapes */
-    .shape-1{position:absolute;right:-80px;top:-60px;width:420px;height:420px;border-radius:40px;background:linear-gradient(135deg,rgba(255,122,45,0.08),rgba(246,198,95,0.06));filter:blur(40px);transform:rotate(18deg)}
-
-    /* ====== Sections ====== */
-    .container{max-width:1200px;margin:0 auto;padding:56px 16px}
-    .section-title{display:flex;align-items:baseline;gap:12px;margin-bottom:20px}
-    .section-title h3{margin:0;font-size:20px;color:var(--deep-blue)}
-    .lead{color:#405b7a}
-
-    /* About */
-    .about{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center}
-    .values{display:flex;gap:14px;flex-wrap:wrap}
-    .value{background:var(--ivory);padding:12px 14px;border-radius:12px;box-shadow:var(--card-shadow);min-width:150px}
-    .founder{background:linear-gradient(180deg,rgba(255,250,240,0.98),white);padding:18px;border-radius:12px;box-shadow:var(--card-shadow);display:flex;gap:14px;align-items:center}
-    .founder img{width:76px;height:76px;border-radius:10px;object-fit:cover}
-    .founder .note{font-size:14px;color:#2f486d}
-
-    @media(max-width:900px){
-      .hero-inner{grid-template-columns:1fr}
-      .about{grid-template-columns:1fr}
-      .hero{padding-top:90px}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
-    /* Causes */
-    .causes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .cause{background:white;padding:18px;border-radius:12px;box-shadow:var(--card-shadow);transition:transform .36s ease, box-shadow .36s ease}
-    .cause:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(15,42,77,0.08)}
-    .cause .icon{width:56px;height:56px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:10px;background:linear-gradient(135deg,rgba(15,42,77,0.04),rgba(255,122,45,0.04))}
-    .cause h4{margin:0 0 8px}
-    .cause p{margin:0;color:#556b86;font-size:14px}
-    @media(max-width:1000px){.causes{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:600px){.causes{grid-template-columns:1fr}}
+    body {
+      color: var(--dark);
+      background: #fff;
+      line-height: 1.7;
+    }
 
-    /* Events gallery */
-    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .event{position:relative;border-radius:12px;overflow:hidden;box-shadow:var(--card-shadow)}
-    .event img{width:100%;height:220px;object-fit:cover;display:block}
-    .event .meta{position:absolute;left:12px;bottom:12px;background:rgba(0,0,0,0.45);padding:8px 10px;border-radius:8px;color:white;font-size:13px}
-    .event .card-body{padding:12px}
-    .event h5{margin:0 0 6px}
-    .event p{margin:0;color:#435b78;font-size:14px}
-    @media(max-width:1000px){.gallery{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:600px){.gallery{grid-template-columns:1fr}}
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
 
-    /* Stats */
-    .stats{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-    .stat{flex:1;min-width:160px;background:linear-gradient(180deg,white, #fffaf5);padding:18px;border-radius:12px;text-align:center;box-shadow:var(--card-shadow)}
-    .stat .num{font-size:28px;font-weight:700;color:var(--warm-orange)}
-    .stat small{display:block;color:#5a6f8c;margin-top:6px}
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-    /* Volunteer / Donate */
-    .split{display:grid;grid-template-columns:1fr 420px;gap:20px;align-items:center}
-    .form{background:white;padding:18px;border-radius:12px;box-shadow:var(--card-shadow)}
-    .field{display:flex;flex-direction:column;margin-bottom:12px}
-    .field label{font-size:13px;color:#5b6f8b;margin-bottom:6px}
-    .field input,.field textarea,.select{padding:10px;border-radius:10px;border:1px solid rgba(12,34,60,0.06);font-size:14px}
-    .donation-options{display:flex;flex-direction:column;gap:8px}
-    .don-card{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:12px;border:1px solid rgba(15,42,77,0.04);background:linear-gradient(180deg,#fff,#fffef8)}
+    nav h1 {
+      color: var(--primary);
+      font-size: 1.4rem;
+    }
 
-    /* Testimonials */
-    .testimonials{position:relative}
-    .slider{display:flex;gap:12px;overflow:hidden}
-    .tcard{min-width:280px;background:white;padding:16px;border-radius:12px;box-shadow:var(--card-shadow)}
-    .tcard p{font-size:15px;color:#34506a}
-    .tmeta{display:flex;gap:10px;align-items:center;margin-top:10px}
-    .tmeta img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
 
-    /* Contact */
-    .contact{display:grid;grid-template-columns:1fr 360px;gap:20px}
-    .contact .info{background:white;padding:16px;border-radius:12px;box-shadow:var(--card-shadow)}
+    nav ul li a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: 0.3s;
+    }
 
-    /* Footer */
-    footer{padding:28px 16px;background:linear-gradient(180deg, #fffaf7, #fffdfb);border-top:1px solid rgba(15,42,77,0.03)}
-    .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+    nav ul li a:hover {
+      color: var(--primary);
+    }
 
-    /* Animations */
-    [data-animate]{opacity:0;transform:translateY(12px);transition:all .72s cubic-bezier(.2,.9,.3,1)}
-    [data-animate].in{opacity:1;transform:none}
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      padding-top: 80px;
+    }
 
-    /* small tweaks */
-    .muted{color:#6b8195}
+    .hero-content {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      padding: 20px;
+      animation: fadeUp 1.5s ease;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      border-radius: 30px;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 5px;
+      transition: 0.3s;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 2px solid #fff;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h3 {
+      font-size: 2.2rem;
+      color: var(--primary);
+    }
+
+    .about-grid, .work-grid, .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--light);
+      padding: 30px;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .legal-box {
+      background: #fff;
+      border-left: 5px solid var(--secondary);
+      padding: 25px;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    footer p {
+      opacity: 0.8;
+    }
+
+    @keyframes fadeUp {
+      from {opacity: 0; transform: translateY(40px);} 
+      to {opacity: 1; transform: translateY(0);} 
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {font-size: 2.2rem;}
+    }
   </style>
 </head>
 <body>
-  <div class="nav" role="navigation" aria-label="Main navigation">
-    <div class="logo">
-      <!-- <div class="mark">S</div> -->
-      <div>
-        <h1>Seva Charitable Trust</h1>
-        <div style="font-size:12px;color:#647892;margin-top:2px">Serving Humanity with Compassion</div>
-      </div>
+
+<header>
+  <nav>
+    <h1>Seva Charitable Trust</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#legal">Legal</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h2>Serving Humanity with Compassion</h2>
+    <p>Seva Charitable Trust is a registered non governmental organization dedicated to social welfare, education support, women empowerment, medical assistance and community upliftment.</p>
+    <button class="btn">Donate Now</button>
+    <button class="btn secondary">Volunteer With Us</button>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-title">
+      <h3>About Seva Charitable Trust</h3>
     </div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#causes">Our Work</a>
-      <a href="#events">Events</a>
-      <a href="#impact">Impact</a>
-      <a class="cta" href="#donate">Donate</a>
+    <div class="about-grid">
+      <div class="card">
+        <h4>Our Background</h4>
+        <p>Seva Charitable Trust was established in the year 2024 and is registered under the Mumbai Public Trust Act, 1950. The trust is committed to serving society with honesty, transparency and compassion.</p>
+      </div>
+      <div class="card">
+        <h4>Our Mission</h4>
+        <p>To uplift underprivileged communities by providing social support, education assistance, healthcare aid and empowerment opportunities with dignity and care.</p>
+      </div>
+      <div class="card">
+        <h4>Our Vision</h4>
+        <p>To build a compassionate and inclusive society where every individual has access to basic needs, education and opportunities for growth.</p>
+      </div>
     </div>
   </div>
+</section>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="shape-1" aria-hidden="true"></div>
-      <div class="hero-inner">
-        <div class="hero-copy" data-animate>
-          <h2>Serving Humanity with Compassion</h2>
-          <p>Seva Charitable Trust – Empowering communities, uplifting lives.</p>
-          <div class="hero-ctas">
-            <button class="btn btn-primary" onclick="document.getElementById('donate').scrollIntoView({behavior:'smooth'})">Donate Now</button>
-            <button class="btn btn-ghost" onclick="document.getElementById('volunteer').scrollIntoView({behavior:'smooth'})">Join as Volunteer</button>
-          </div>
-          <div style="margin-top:18px;color:#4a6a86;font-size:15px">Led by Founder and President <strong>Sana Kazi</strong> — guiding Seva with empathy and courage.</div>
-        </div>
-
-        <div class="hero-media" data-animate>
-          <!-- Placeholder video from unsplash seeds. Replace with your own media for production -->
-          <video autoplay muted loop playsinline poster="https://scontent.fbom2-1.fna.fbcdn.net/v/t39.30808-6/468626241_1722697248515643_112139602477347454_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=TR8QQW3u--oQ7kNvwEODTjm&_nc_oc=AdkOJ09BiLBgCVChIzw9fgDMf0FO8-8PMsuJJ43TF8UOLtKz6kvJUGe-5lSQ5vkyGio&_nc_zt=23&_nc_ht=scontent.fbom2-1.fna&_nc_gid=hcSKYastwMe7oqIoHlIYAA&oh=00_AflG3wwNm5lAuf2zD-HthQzvoZNNCFqG0HO1YLwUnSn-MA&oe=6941EE95">
-            <source src="https://storage.coverr.co/videos/coverr-community-volunteers-at-an-event-1586?token=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjb3ZlcnIiLCJpYXQiOjE2NzA1NTI3NTcsInN1YiI6InZpZGVvOjE1ODYiLCJ1c2VyIjoidXNlci1wdWJsaXNoZXIifQ.3Fv4V2qv2k1uB6v3fA5e2t8Kc7f6r9QxQWQ5E5b9j0s" type="video/mp4">
-            <!-- fallback image -->
-          </video>
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="container" aria-labelledby="aboutTitle">
-      <div class="section-title"><h3 id="aboutTitle">About Seva Charitable Trust</h3></div>
-      <div class="about">
-        <div data-animate>
-          <p class="lead">Seva Charitable Trust is a not for profit organization committed to serving underprivileged families and building stronger, healthier communities. Through targeted programs in women empowerment, education, and health care, Seva works hand in hand with communities to create lasting positive change.</p>
-          <h4 style="margin-top:18px">Mission</h4>
-          <p class="muted">To empower vulnerable communities through education, health care, and sustainable livelihood opportunities while nurturing equality and dignity for every person.</p>
-
-          <h4 style="margin-top:14px">Vision</h4>
-          <p class="muted">A world where every individual has access to basic needs and the opportunity to thrive.</p>
-
-          <div style="margin-top:16px" class="values">
-            <div class="value"><strong>Compassion</strong><div class="muted" style="font-size:13px">Helping with heart</div></div>
-            <div class="value"><strong>Service</strong><div class="muted" style="font-size:13px">Acting with purpose</div></div>
-            <div class="value"><strong>Equality</strong><div class="muted" style="font-size:13px">Opportunity for all</div></div>
-            <div class="value"><strong>Empowerment</strong><div class="muted" style="font-size:13px">Building capacity</div></div>
-          </div>
-        </div>
-
-        <aside class="founder" data-animate>
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=60" alt="Sana Kazi"/>
-          <div>
-            <div style="font-weight:700">Sana Kazi</div>
-            <div style="font-size:13px;color:#4c6a86;margin-top:6px">Founder & President</div>
-            <p class="note" style="margin-top:10px">"Seva begins with a single act of kindness. I believe when communities come together, even the smallest help uplifts lives in ways we cannot imagine."</p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Causes -->
-    <section id="causes" class="container" aria-labelledby="causesTitle">
-      <div class="section-title"><h3 id="causesTitle">Our Work</h3><div class="muted">The programs and causes we support</div></div>
-      <div class="causes" data-animate>
-        <div class="cause">
-          <div class="icon">👩‍🏫</div>
-          <h4>Women Empowerment</h4>
-          <p>Skill training, micro grants and leadership programs to help women achieve independence.</p>
-        </div>
-        <div class="cause">
-          <div class="icon">📚</div>
-          <h4>Child Education</h4>
-          <p>Scholarships, after school support, and learning kits to keep children in school.</p>
-        </div>
-        <div class="cause">
-          <div class="icon">🩺</div>
-          <h4>Healthcare Assistance</h4>
-          <p>Medical camps, essential medicines, and referrals for specialised care.</p>
-        </div>
-        <div class="cause">
-          <div class="icon">🍲</div>
-          <h4>Food Distribution</h4>
-          <p>Regular meal drives and emergency food support for families in need.</p>
-        </div>
-        <div class="cause">
-          <div class="icon">🏘️</div>
-          <h4>Community Development</h4>
-          <p>Livelihood programs, local infrastructure support and awareness campaigns.</p>
-        </div>
-        <div class="cause">
-          <div class="icon">🌱</div>
-          <h4>Environmental Care</h4>
-          <p>Tree planting, waste management awareness, and sustainable practices.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Events -->
-    <section id="events" class="container" aria-labelledby="eventsTitle">
-      <div class="section-title"><h3 id="eventsTitle">Events & Activities</h3><div class="muted">Recent events where we served together</div></div>
-      <div class="gallery" data-animate>
-        <div class="event">
-          <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=900&q=60" alt="Medical Camp">
-          <div class="meta">12 Sep 2025 • Community Hall</div>
-          <div class="card-body">
-            <h5>Free Medical Camp</h5>
-            <p>Health checkups and medicines for 300+ families.</p>
-          </div>
-        </div>
-        <div class="event">
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=60" alt="Education Drive">
-          <div class="meta">28 Aug 2025 • Kharghar</div>
-          <div class="card-body">
-            <h5>Education Drive</h5>
-            <p>School kits and tutoring for children in need.</p>
-          </div>
-        </div>
-        <div class="event">
-          <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=900&q=60" alt="Food Distribution">
-          <div class="meta">03 Jul 2025 • Local Slums</div>
-          <div class="card-body">
-            <h5>Meals for Families</h5>
-            <p>Distributed warm meals across communities.</p>
-          </div>
-        </div>
-      </div>
-      <div style="margin-top:16px;text-align:center"><button class="btn btn-ghost" onclick="alert('Open events archive')">View More Events</button></div>
-    </section>
-
-    <!-- Impact -->
-    <section id="impact" class="container" aria-labelledby="impactTitle">
-      <div class="section-title"><h3 id="impactTitle">Our Impact</h3><div class="muted">Small acts, remarkable change</div></div>
-      <div class="stats" data-animate>
-        <div class="stat">
-          <div class="num" data-count="1245">0</div>
-          <small>Families Supported</small>
-        </div>
-        <div class="stat">
-          <div class="num" data-count="420">0</div>
-          <small>Volunteers Engaged</small>
-        </div>
-        <div class="stat">
-          <div class="num" data-count="38200">0</div>
-          <small>Meals Served</small>
-        </div>
-        <div class="stat">
-          <div class="num" data-count="310">0</div>
-          <small>Education Scholarships</small>
-        </div>
-        <div class="stat">
-          <div class="num" data-count="58">0</div>
-          <small>Medical Camps Organized</small>
-        </div>
-      </div>
-    </section>
-
-    <!-- Volunteer & Donate Split -->
-    <section id="volunteer" class="container" aria-labelledby="volunteerTitle">
-      <div class="section-title"><h3 id="volunteerTitle">Become a Volunteer</h3><div class="muted">Join hands. Transform lives.</div></div>
-      <div class="split">
-        <div data-animate>
-          <h4>Why Volunteer?</h4>
-          <p class="muted">Volunteering connects you to purpose, community, and meaningful change. Whether you teach, serve meals, or help run events, your time matters deeply.</p>
-          <ul class="muted" style="margin-top:12px">
-            <li>Gain hands on experience with community programs</li>
-            <li>Learn skills while making a real difference</li>
-            <li>Become part of a compassionate network</li>
-          </ul>
-        </div>
-
-        <form class="form" onsubmit="event.preventDefault();alert('Thank you for volunteering — we will reach out!')">
-          <div class="field"><label>Name</label><input required placeholder="Full name"/></div>
-          <div class="field"><label>Email</label><input type="email" required placeholder="you@example.com"/></div>
-          <div class="field"><label>Phone</label><input placeholder="Phone number"/></div>
-          <div class="field"><label>Area of interest</label>
-            <select class="select">
-              <option>Teaching</option>
-              <option>Health camps</option>
-              <option>Food drives</option>
-              <option>Logistics</option>
-              <option>Fundraising</option>
-            </select>
-          </div>
-          <button class="btn btn-primary" type="submit">Sign Up to Volunteer</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- Donate -->
-    <section id="donate" class="container" aria-labelledby="donateTitle">
-      <div class="section-title"><h3 id="donateTitle">Donate</h3><div class="muted">Your support brings hope</div></div>
-      <div style="display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start">
-        <div data-animate>
-          <p class="muted">Every contribution helps Seva Charitable Trust reach more families with essential services. Choose a simple option below to start making a difference today.</p>
-          <div style="margin-top:12px" class="donation-options">
-            <div class="don-card">
-              <div>
-                <div style="font-weight:700">One Time Donation</div>
-                <div class="muted" style="font-size:13px">Support immediate needs</div>
-              </div>
-              <div><button class="btn btn-primary" onclick="alert('Proceed to one time payment')">Donate</button></div>
-            </div>
-            <div class="don-card">
-              <div>
-                <div style="font-weight:700">Monthly Donation</div>
-                <div class="muted" style="font-size:13px">Sustainable impact every month</div>
-              </div>
-              <div><button class="btn btn-ghost" onclick="alert('Proceed to monthly contribution')">Start Monthly</button></div>
-            </div>
-            <div class="don-card">
-              <div>
-                <div style="font-weight:700">Sponsor a Child</div>
-                <div class="muted" style="font-size:13px">Provide education and care</div>
-              </div>
-              <div><button class="btn btn-ghost" onclick="alert('Sponsor a child form')">Sponsor</button></div>
-            </div>
-            <div class="don-card">
-              <div>
-                <div style="font-weight:700">Sponsor Meals</div>
-                <div class="muted" style="font-size:13px">Feed families in need</div>
-              </div>
-              <div><button class="btn btn-ghost" onclick="alert('Sponsor meals')">Sponsor</button></div>
-            </div>
-          </div>
-          <div style="margin-top:14px;font-size:13px;color:#4f6b8a">Trust signals: 100% transparent use of funds • Annual reports • Verified bank account</div>
-        </div>
-
-        <aside class="form" data-animate>
-          <h4 style="margin-top:0">Quick Donate</h4>
-          <form onsubmit="event.preventDefault();alert('Thank you for your generosity!')">
-            <div class="field"><label>Full name</label><input required/></div>
-            <div class="field"><label>Email</label><input type="email" required/></div>
-            <div class="field"><label>Amount (INR)</label><input required placeholder="e.g. 1000"/></div>
-            <div class="field"><label>Donation Type</label>
-              <select class="select">
-                <option>One Time</option>
-                <option>Monthly</option>
-              </select>
-            </div>
-            <button class="btn btn-primary" type="submit">Donate Now</button>
-          </form>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonials" class="container" aria-labelledby="testTitle">
-      <div class="section-title"><h3 id="testTitle">Testimonials</h3><div class="muted">Voices from the community</div></div>
-      <div class="testimonials" data-animate>
-        <div class="slider" id="testimonialSlider">
-          <div class="tcard">
-            <p>"Seva helped my daughter get a scholarship last year. Today she is in school and dreams of becoming a teacher."</p>
-            <div class="tmeta"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=60" alt="beneficiary"/><div><strong>Razia</strong><div class="muted">Beneficiary</div></div></div>
-          </div>
-          <div class="tcard">
-            <p>"Volunteering at Seva changed my life. I met people, learned skills and felt I was truly useful."</p>
-            <div class="tmeta"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=60" alt="volunteer"/><div><strong>Arjun</strong><div class="muted">Volunteer</div></div></div>
-          </div>
-          <div class="tcard">
-            <p>"Their medical camp saved my father — the doctors were kind and everything was free. We will always be grateful."</p>
-            <div class="tmeta"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=200&q=60" alt="community"/><div><strong>Priya</strong><div class="muted">Community</div></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="container" aria-labelledby="contactTitle">
-      <div class="section-title"><h3 id="contactTitle">Contact Us</h3><div class="muted">We would love to hear from you</div></div>
-      <div class="contact">
-        <form class="form" onsubmit="event.preventDefault();alert('Thanks for reaching out — we will get back soon!')">
-          <div class="field"><label>Name</label><input required/></div>
-          <div class="field"><label>Email</label><input type="email" required/></div>
-          <div class="field"><label>Message</label><textarea rows="5" required></textarea></div>
-          <button class="btn btn-primary" type="submit">Send Message</button>
-        </form>
-
-        <aside class="info">
-          <div style="padding:14px">
-            <div style="font-weight:700">Get in touch</div>
-            <div class="muted" style="margin-top:6px">Email: hello@seva.org • Phone: +91 98765 43210</div>
-            <div class="muted" style="margin-top:6px">Address: Seva Charitable Trust, Kharghar, Navi Mumbai, India</div>
-
-            <div style="margin-top:14px">
-              <div style="font-weight:600;margin-bottom:8px">Follow us</div>
-              <div style="display:flex;gap:10px">
-                <a href="#" aria-label="facebook">🔵</a>
-                <a href="#" aria-label="instagram">🟣</a>
-                <a href="#" aria-label="twitter">🔷</a>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div style="display:flex;align-items:center;gap:12px">
-        <!-- <div class="mark">S</div> -->
-        <div>
-          <div style="font-weight:700">Seva Charitable Trust</div>
-          <div class="muted" style="font-size:13px">Inspired by humanity, driven by compassion.</div>
-        </div>
-      </div>
-      <div style="font-size:13px;color:#5a6f8c">&copy; Seva Charitable Trust 2025 • All rights reserved</div>
+<section id="work" style="background:#f5f5f5;">
+  <div class="container">
+    <div class="section-title">
+      <h3>Our Work & Initiatives</h3>
     </div>
-  </footer>
+    <div class="work-grid">
+      <div class="card">Education support for underprivileged children</div>
+      <div class="card">Women empowerment and skill development programs</div>
+      <div class="card">Medical aid and healthcare assistance</div>
+      <div class="card">Community welfare and social awareness initiatives</div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // Simple intersection observer to reveal elements
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){e.target.classList.add('in');}
-      });
-    },{threshold:0.12});
-    document.querySelectorAll('[data-animate]').forEach(el=>io.observe(el));
+<section id="activities" style="background:#fff;">
+  <div class="container">
+    <div class="section-title">
+      <h3>Activities & Impact Stories</h3>
+      <p style="max-width:700px;margin:15px auto;color:#555;">A timeline of our initiatives showcasing real impact created at the grassroots level. Each activity reflects our commitment to service, dignity, and transparency.</p>
+    </div>
 
-    // Animated counters
-    function animateCount(el, to){
-      let start = 0; const dur = 1400; const step = Math.max(10, Math.floor(dur/60));
-      const inc = Math.max(1, Math.floor(to/(dur/step)));
-      const iv = setInterval(()=>{
-        start += inc;
-        if(start >= to){el.textContent = to;clearInterval(iv)}else{el.textContent = start}
-      }, step);
-    }
-    const statEls = document.querySelectorAll('.num');
-    const statObserver = new IntersectionObserver((entries,obs)=>{
-      entries.forEach(en=>{
-        if(en.isIntersecting){
-          const el = en.target; const to = parseInt(el.getAttribute('data-count')||0,10);
-          animateCount(el,to);
-          obs.unobserve(el);
-        }
-      });
-    },{threshold:0.3});
-    statEls.forEach(e=>statObserver.observe(e));
+    <!-- Timeline -->
+    <div style="position:relative;margin-top:50px;">
+      <div style="position:absolute;left:50%;top:0;bottom:0;width:4px;background:#f0f0f0;transform:translateX(-50%);"></div>
 
-    // Simple testimonial slider (auto scroll)
-    const slider = document.getElementById('testimonialSlider');
-    let slidePos = 0;
-    function slideTestimonials(){
-      slidePos += 1;
-      const cardWidth = slider.querySelector('.tcard').offsetWidth + 12;
-      if(slidePos > (slider.children.length - 1)) slidePos = 0;
-      slider.scrollTo({left: cardWidth * slidePos, behavior:'smooth'});
-    }
-    let slideInterval = setInterval(slideTestimonials,4000);
-    slider.addEventListener('mouseenter',()=>clearInterval(slideInterval));
-    slider.addEventListener('mouseleave',()=>slideInterval = setInterval(slideTestimonials,4000));
+      <!-- Activity 1 -->
+      <div style="display:flex;gap:30px;margin-bottom:50px;align-items:flex-start;">
+        <div style="flex:1;text-align:right;padding-right:30px;">
+          <h4 style="color:#f57c00;">January 2024</h4>
+          <h5>Community Support Drive</h5>
+          <p>Essential ration and daily necessities were distributed to economically weaker families, ensuring food security and immediate relief.</p>
+          <small><strong>Impact:</strong> Supported multiple families with dignity and care.</small>
+        </div>
+        <div style="width:40px;height:40px;background:#f57c00;border-radius:50%;z-index:2;"></div>
+        <div style="flex:1;padding-left:30px;">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf" alt="Community Support" style="width:100%;border-radius:12px;">
+        </div>
+      </div>
 
-    // Small accessibility: focus outline on keyboard
-    document.body.addEventListener('keydown',(e)=>{if(e.key==='Tab')document.body.style.scrollBehavior='smooth'})
-  </script>
+      <!-- Activity 2 -->
+      <div style="display:flex;gap:30px;margin-bottom:50px;align-items:flex-start;flex-direction:row-reverse;">
+        <div style="flex:1;text-align:left;padding-left:30px;">
+          <h4 style="color:#2e7d32;">March 2024</h4>
+          <h5>Education Assistance Program</h5>
+          <p>Educational materials and guidance were provided to underprivileged students to prevent school dropouts and encourage learning.</p>
+          <small><strong>Impact:</strong> Helped students continue their education with confidence.</small>
+        </div>
+        <div style="width:40px;height:40px;background:#2e7d32;border-radius:50%;z-index:2;"></div>
+        <div style="flex:1;padding-right:30px;">
+          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7" alt="Education Support" style="width:100%;border-radius:12px;">
+        </div>
+      </div>
+
+      <!-- Activity 3 -->
+      <div style="display:flex;gap:30px;margin-bottom:50px;align-items:flex-start;">
+        <div style="flex:1;text-align:right;padding-right:30px;">
+          <h4 style="color:#f57c00;">June 2024</h4>
+          <h5>Medical Assistance & Awareness</h5>
+          <p>Medical support and health awareness initiatives were conducted to assist individuals facing healthcare challenges.</p>
+          <small><strong>Impact:</strong> Improved awareness and access to basic medical support.</small>
+        </div>
+        <div style="width:40px;height:40px;background:#f57c00;border-radius:50%;z-index:2;"></div>
+        <div style="flex:1;padding-left:30px;">
+          <img src="https://images.unsplash.com/photo-1584515933487-779824d29309" alt="Medical Aid" style="width:100%;border-radius:12px;">
+        </div>
+      </div>
+
+      <!-- Activity 4 -->
+      <div style="display:flex;gap:30px;align-items:flex-start;flex-direction:row-reverse;">
+        <div style="flex:1;text-align:left;padding-left:30px;">
+          <h4 style="color:#2e7d32;">September 2024</h4>
+          <h5>Women & Social Empowerment</h5>
+          <p>Awareness and empowerment initiatives focused on women rights, dignity, and self reliance.</p>
+          <small><strong>Impact:</strong> Encouraged confidence and social participation among women.</small>
+        </div>
+        <div style="width:40px;height:40px;background:#2e7d32;border-radius:50%;z-index:2;"></div>
+        <div style="flex:1;padding-right:30px;">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" alt="Women Empowerment" style="width:100%;border-radius:12px;">
+        </div>
+      </div>
+    </div>
+
+    <!-- CSR / Government Ready Summary -->
+    <div style="margin-top:80px;background:#f9f9f9;padding:40px;border-radius:15px;">
+      <h4 style="color:#f57c00;margin-bottom:15px;">CSR & Government Submission Summary</h4>
+      <p>Seva Charitable Trust has been actively engaged in community welfare initiatives since its establishment in 2024. The trust has successfully executed programs in social support, education assistance, healthcare aid, and women empowerment. All activities are conducted with transparency, proper documentation, and alignment with statutory compliance, making the trust suitable for CSR partnerships and government supported programs.</p>
+      <ul style="margin-top:15px;line-height:1.8;">
+        <li>✔ Registered under Mumbai Public Trust Act, 1950</li>
+        <li>✔ NGO Darpan and e Anudaan enrolled</li>
+        <li>✔ Focus on measurable social impact</li>
+        <li>✔ Transparent operations and reporting</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="legal">
+  <div class="container">
+    <div class="section-title">
+      <h3>Legal & Registration Information</h3>
+    </div>
+    <div class="legal-box">
+      <strong>Trust Name:</strong> Seva Charitable Trust<br>
+      <strong>Registration Number:</strong> E-0001113 (RTN)<br>
+      <strong>Year of Establishment:</strong> 2024<br>
+      <strong>Registered Under:</strong> Mumbai Public Trust Act, 1950<br>
+      <strong>NGO Darpan ID:</strong> MH/2024/0474661<br>
+      <strong>e-Anudaan NGO ID:</strong> MH/00040867
+    </div>
+  </div>
+</section>
+
+<section id="members" style="background:#fff;">
+  <div class="container">
+    <div class="section-title">
+      <h3>Our Members</h3>
+      <p style="max-width:700px;margin:15px auto;color:#555;">Meet the dedicated individuals who form the backbone of Seva Charitable Trust. Their commitment and service drive our mission forward.</p>
+    </div>
+
+    <div style="/*! overflow-x:auto; */display:block;/*! gap:30px; */padding:20px 10px;/*! scroll-behavior:smooth; */text-align: center;">
+      <img src="Images\Members\1.jpeg" alt="President" style="height:420px;border-radius:5px;flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,0.15); margin: 5px;">
+      <img src="Images\Members\2.jpeg" alt="Member" style="height:420px;border-radius:5px;flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,0.15); margin: 5px;">
+      <img src="Images\Members\3.jpeg" alt="Member" style="height:420px;border-radius:5px;flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,0.15); margin: 5px;">
+      <img src="Images\Members\4.jpeg" alt="Member" style="height:420px;border-radius:5px;flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,0.15); margin: 5px;">
+      <img src="Images\Members\5.jpeg" alt="Member" style="height:420px;border-radius:5px;flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,0.15); margin: 5px;">
+      <img src="Images\Members\6.jpeg" alt="Member" style="height:420px;border-radius:5px;flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,0.15); margin: 5px;">
+      <img src="Images\Members\7.jpeg" alt="Member" style="height:420px;border-radius:5px;flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,0.15); margin: 5px;">
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="background:#f5f5f5;">
+  <div class="container">
+    <div class="section-title">
+      <h3>Contact Us</h3>
+    </div>
+    <div class="contact-grid">
+      <div class="card">
+        <p><strong>Registered Office:</strong><br>208, Harnai, Tal. Dapoli, Dist. Ratnagiri, Maharashtra 415713</p>
+        <p><strong>Phone:</strong> +91 8381092292</p>
+        <p><strong>Email:</strong> sevacharitabletrust@gmail.com</p>
+      </div>
+      <div class="card">
+        <form>
+          <input type="text" placeholder="Your Name" required style="width:100%;padding:10px;margin-bottom:10px;">
+          <input type="email" placeholder="Your Email" required style="width:100%;padding:10px;margin-bottom:10px;">
+          <textarea placeholder="Your Message" rows="4" style="width:100%;padding:10px;margin-bottom:10px;"></textarea>
+          <button class="btn" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2024 Seva Charitable Trust. All Rights Reserved.</p>
+</footer>
+
 </body>
 </html>
