@@ -6,7 +6,6 @@
   <title>Seva Charitable Trust | Serving Humanity with Compassion</title>
   <meta name="description" content="Seva Charitable Trust is a registered NGO working for social welfare, education, women empowerment, medical aid and community upliftment." />
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -72,7 +71,8 @@
 
     .hero {
       height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c') center/cover no-repeat;
       display: flex;
       align-items: center;
       color: #fff;
@@ -162,6 +162,35 @@
       margin-bottom: 20px;
     }
 
+    /* MEMBERS HORIZONTAL SCROLL */
+    .members-scroll {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 20px 10px;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .members-scroll::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .members-scroll::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.2);
+      border-radius: 10px;
+    }
+
+    .member-card {
+      flex: 0 0 auto;
+    }
+
+    .member-card img {
+      height: 420px;
+      border-radius: 5px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
     footer {
       background: var(--dark);
       color: #fff;
@@ -174,15 +203,17 @@
     }
 
     @keyframes fadeUp {
-      from {opacity: 0; transform: translateY(40px);} 
-      to {opacity: 1; transform: translateY(0);} 
+      from {opacity: 0; transform: translateY(40px);}
+      to {opacity: 1; transform: translateY(0);}
     }
 
     @media (max-width: 768px) {
       .hero h2 {font-size: 2.2rem;}
+      .member-card img {height: 320px;}
     }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -243,89 +274,6 @@
   </div>
 </section>
 
-<section id="activities" style="background:#fff;">
-  <div class="container">
-    <div class="section-title">
-      <h3>Activities & Impact Stories</h3>
-      <p style="max-width:700px;margin:15px auto;color:#555;">A timeline of our initiatives showcasing real impact created at the grassroots level. Each activity reflects our commitment to service, dignity, and transparency.</p>
-    </div>
-
-    <!-- Timeline -->
-    <div style="position:relative;margin-top:50px;">
-      <div style="position:absolute;left:50%;top:0;bottom:0;width:4px;background:#f0f0f0;transform:translateX(-50%);"></div>
-
-      <!-- Activity 1 -->
-      <div style="display:flex;gap:30px;margin-bottom:50px;align-items:flex-start;">
-        <div style="flex:1;text-align:right;padding-right:30px;">
-          <h4 style="color:#f57c00;">January 2024</h4>
-          <h5>Community Support Drive</h5>
-          <p>Essential ration and daily necessities were distributed to economically weaker families, ensuring food security and immediate relief.</p>
-          <small><strong>Impact:</strong> Supported multiple families with dignity and care.</small>
-        </div>
-        <div style="width:40px;height:40px;background:#f57c00;border-radius:50%;z-index:2;"></div>
-        <div style="flex:1;padding-left:30px;">
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf" alt="Community Support" style="width:100%;border-radius:12px;">
-        </div>
-      </div>
-
-      <!-- Activity 2 -->
-      <div style="display:flex;gap:30px;margin-bottom:50px;align-items:flex-start;flex-direction:row-reverse;">
-        <div style="flex:1;text-align:left;padding-left:30px;">
-          <h4 style="color:#2e7d32;">March 2024</h4>
-          <h5>Education Assistance Program</h5>
-          <p>Educational materials and guidance were provided to underprivileged students to prevent school dropouts and encourage learning.</p>
-          <small><strong>Impact:</strong> Helped students continue their education with confidence.</small>
-        </div>
-        <div style="width:40px;height:40px;background:#2e7d32;border-radius:50%;z-index:2;"></div>
-        <div style="flex:1;padding-right:30px;">
-          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7" alt="Education Support" style="width:100%;border-radius:12px;">
-        </div>
-      </div>
-
-      <!-- Activity 3 -->
-      <div style="display:flex;gap:30px;margin-bottom:50px;align-items:flex-start;">
-        <div style="flex:1;text-align:right;padding-right:30px;">
-          <h4 style="color:#f57c00;">June 2024</h4>
-          <h5>Medical Assistance & Awareness</h5>
-          <p>Medical support and health awareness initiatives were conducted to assist individuals facing healthcare challenges.</p>
-          <small><strong>Impact:</strong> Improved awareness and access to basic medical support.</small>
-        </div>
-        <div style="width:40px;height:40px;background:#f57c00;border-radius:50%;z-index:2;"></div>
-        <div style="flex:1;padding-left:30px;">
-          <img src="https://images.unsplash.com/photo-1584515933487-779824d29309" alt="Medical Aid" style="width:100%;border-radius:12px;">
-        </div>
-      </div>
-
-      <!-- Activity 4 -->
-      <div style="display:flex;gap:30px;align-items:flex-start;flex-direction:row-reverse;">
-        <div style="flex:1;text-align:left;padding-left:30px;">
-          <h4 style="color:#2e7d32;">September 2024</h4>
-          <h5>Women & Social Empowerment</h5>
-          <p>Awareness and empowerment initiatives focused on women rights, dignity, and self reliance.</p>
-          <small><strong>Impact:</strong> Encouraged confidence and social participation among women.</small>
-        </div>
-        <div style="width:40px;height:40px;background:#2e7d32;border-radius:50%;z-index:2;"></div>
-        <div style="flex:1;padding-right:30px;">
-          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" alt="Women Empowerment" style="width:100%;border-radius:12px;">
-        </div>
-      </div>
-    </div>
-
-    <!-- CSR / Government Ready Summary -->
-    <div style="margin-top:80px;background:#f9f9f9;padding:40px;border-radius:15px;">
-      <h4 style="color:#f57c00;margin-bottom:15px;">CSR & Government Submission Summary</h4>
-      <p>Seva Charitable Trust has been actively engaged in community welfare initiatives since its establishment in 2024. The trust has successfully executed programs in social support, education assistance, healthcare aid, and women empowerment. All activities are conducted with transparency, proper documentation, and alignment with statutory compliance, making the trust suitable for CSR partnerships and government supported programs.</p>
-      <ul style="margin-top:15px;line-height:1.8;">
-        <li>✔ Registered under Mumbai Public Trust Act, 1950</li>
-        <li>✔ NGO Darpan and e Anudaan enrolled</li>
-        <li>✔ Focus on measurable social impact</li>
-        <li>✔ Transparent operations and reporting</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
 <section id="legal">
   <div class="container">
     <div class="section-title">
@@ -346,17 +294,19 @@
   <div class="container">
     <div class="section-title">
       <h3>Our Members</h3>
-      <p style="max-width:700px;margin:15px auto;color:#555;">Meet the dedicated individuals who form the backbone of Seva Charitable Trust. Their commitment and service drive our mission forward.</p>
+      <p style="max-width:700px;margin:15px auto;color:#555;">
+        Meet the dedicated individuals who form the backbone of Seva Charitable Trust.
+      </p>
     </div>
 
-    <div style="/*! overflow-x:auto; */display:block;/*! gap:30px; */padding:20px 10px;/*! scroll-behavior:smooth; */text-align: center;">
-      <img src="Images\Members\1.jpeg" alt="President" style="height:420px;border-radius:5px;flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,0.15); margin: 5px;">
-      <img src="Images\Members\2.jpeg" alt="Member" style="height:420px;border-radius:5px;flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,0.15); margin: 5px;">
-      <img src="Images\Members\3.jpeg" alt="Member" style="height:420px;border-radius:5px;flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,0.15); margin: 5px;">
-      <img src="Images\Members\4.jpeg" alt="Member" style="height:420px;border-radius:5px;flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,0.15); margin: 5px;">
-      <img src="Images\Members\5.jpeg" alt="Member" style="height:420px;border-radius:5px;flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,0.15); margin: 5px;">
-      <img src="Images\Members\6.jpeg" alt="Member" style="height:420px;border-radius:5px;flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,0.15); margin: 5px;">
-      <img src="Images\Members\7.jpeg" alt="Member" style="height:420px;border-radius:5px;flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,0.15); margin: 5px;">
+    <div class="members-scroll">
+      <div class="member-card"><img src="Images/Members/1.jpeg"></div>
+      <div class="member-card"><img src="Images/Members/4.jpeg"></div>
+      <div class="member-card"><img src="Images/Members/2.jpeg"></div>
+      <div class="member-card"><img src="Images/Members/3.jpeg"></div>
+      <div class="member-card"><img src="Images/Members/5.jpeg"></div>
+      <div class="member-card"><img src="Images/Members/6.jpeg"></div>
+      <div class="member-card"><img src="Images/Members/7.jpeg"></div>
     </div>
   </div>
 </section>
